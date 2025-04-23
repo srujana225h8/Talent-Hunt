@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Content - TalentHunt</title>
+    <link rel="stylesheet" href="reportContent.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="#" class="logo">
+                <img src="talenthunt.png" alt="TalentHunt Logo">
+            </a>
+            <nav class="navbar">
+                <div class="menu">
+                    <ul class="nav">
+                        <li><a href="faq.html" class="FAQ-btn"><span>FAQ</span></a></li>
+                        <li><a href="news.html" class="news-btn"><span>NewsLetter</span></a></li>
+                        <li><a href="Auditionform.html" class="signup-btn"><span>Audition Now</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div class="report-content">
+        <h1>Report Content</h1>
+        <p>If you find any content that violates our guidelines, please use the form below to report it.</p>
+        <form action="submit_report.php" method="post" class="report-form">
+            <label for="content-url">Content URL:</label>
+            <input type="url" id="content-url" name="content-url" required>
+            
+            <label for="report-reason">Reason for Report:</label>
+            <select id="report-reason" name="report-reason" required>
+                <option value="spam">Spam</option>
+                <option value="inappropriate">Inappropriate Content</option>
+                <option value="copyright">Copyright Violation</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label for="report-details">Additional Details:</label>
+            <textarea id="report-details" name="report-details" rows="4" required></textarea>
+            
+            <button type="submit" class="submit-btn">Submit Report</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-description">
+                <p>TalentHunt is your go-to platform for finding and landing your dream role. Join us today and take the next step in your career!</p>
+            </div>
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>For Finding Jobs</h4>
+                    <ul>
+                        <li><a href="#">Actors & Performers</a></li>
+                        <li><a href="#">Voiceover Artists</a></li>
+                        <li><a href="#">Creatives & Production Crew</a></li>
+                        <li><a href="#">Influencers + Content Creators</a></li>
+                        <li><a href="#">Models</a></li>
+                        <li><a href="#">Search Casting Calls</a></li>
+                        <li><a href="#">Popular Auditions</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">Advice & Guides</a></li>
+                        <li><a href="#">Backstage Kids</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Acting Monologues</a></li>
+                        <li><a href="#">Online Classes</a></li>
+                        <li><a href="#">Create Your Free Talent Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Finding Talent</h4>
+                    <ul>
+                        <li><a href="#">Film, Video & TV Production</a></li>
+                        <li><a href="#">Theater & Performing Arts</a></li>
+                        <li><a href="#">Voiceover Production</a></li>
+                        <li><a href="#">Commercial + Branded Content</a></li>
+                        <li><a href="#">Influencers + UGC</a></li>
+                        <li><a href="#">Companies & NGOs</a></li>
+                        <li><a href="#">Talent Database</a></li>
+                        <li><a href="#">Pay Talent</a></li>
+                        <li><a href="#">How it Works</a></li>
+                        <li><a href="#">Advice for Creators</a></li>
+                        <li><a href="#">Post a Job</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Articles Archive</a></li>
+                        <li><a href="#">Group and School Subscriptions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Advertising</a></li>
+                        <li><a href="#">Report Content</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                </a>
+            </div>
+            <p class="footer-text">&copy; 2024 TalentHunt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Validate the form fields
+            var contentUrl = document.getElementById('content-url').value.trim();
+            var reportReason = document.getElementById('report-reason').value.trim();
+            var reportDetails = document.getElementById('report-details').value.trim();
+
+            if (contentUrl === '' || reportReason === '' || reportDetails === '') {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // If all fields are filled, submit the form
+            this.submit();
+        });
+    </script>
+</body>
+</html>

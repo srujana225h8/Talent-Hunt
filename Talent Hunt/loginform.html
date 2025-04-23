@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const emailOrPhoneRegex = /^(\d{10}|\S+@\S+\.\S+)$/;
+            const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+            if (!username || !password) {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            if (!emailOrPhoneRegex.test(username)) {
+                alert("Please enter a valid email or 10-digit phone number.");
+                return false;
+            }
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters, include a number and a special character.");
+                return false;
+            }
+
+            // If validation passes, you can manually submit the form
+            document.getElementById("loginForm").submit();
+        }
+    </script>
+</head>
+<body bgcolor="rgb(0, 0, 51)">
+    <div style="text-align: center;">
+        <img src="talenthunt.png" style="height: 175px;">
+    </div>
+    <form id="loginForm" action="home.html" onsubmit="validateForm(event)">
+        <div style=" width: 300px; height: 300px; border: solid rgb(230, 230, 255) 2px;background-color: rgb(230, 230, 255);" class="center">
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center; color: rgb(0, 0, 51);">Login Form</h1>
+            <label style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 10px; color:rgb(0, 0, 51);">Email or Phone </label><br>
+            <input type="text" id="username" style="height: 25px; width: 250px;margin-left: 10px;"><br><br>
+            <label style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-left: 10px; color: rgb(0, 0, 51);">Password </label><br>
+            <input type="password" id="password" style="height: 25px; width: 250px;margin-left: 10px;"><br><br><br>
+            <input type="submit" value="LOGIN" style="height: 25px; width: 250px; background-color: rgb(0, 0, 51); color: rgb(230, 230, 255); font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-left: 11px;"><br><br>
+            <label style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-left: 11px;">Not a member?</label>
+            <a href="signupform.html">Signup now</a>
+        </div>
+    </form>
+</body>
+</html>
